@@ -1,14 +1,23 @@
 use nc_sdk_types::{NCNameType};
+use std::fmt;
 
+#[derive(Debug)]
 enum EosioData {
     Some(data),
     None,
 }
-
+#[derive(Debug)]
 struct EosioAuthorizationObject = {
     actor: String,
     permission: String,
 };
+
+impl fmt::Display for EosioAuthorizationObject {
+    
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "actor: {}, permission: {}.", self.actor, self.permission)
+    }
+}
 
 impl EosioAuthorizationOboject {
 
@@ -18,12 +27,28 @@ impl EosioAuthorizationOboject {
     }
 }
 
-
+#[derive(Debug)]
 struct EosioActionObject = {
     account: String,
     name: String,
     authorization: Vec<EosioAuthorizationObject>,
     data: EosioData
+}
+
+impl fmt::Display for EosioActionObject {
+    
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, 
+        "account: {},
+        name: {},
+        authorization: {},
+        data: {}.
+        ", 
+        self.account, 
+        self.name,
+        self.authorization,
+        self.data)
+    }
 }
 
 impl EosioActionObject {
@@ -37,9 +62,9 @@ impl EosioActionObject {
     }
 }
 
-struct ActionGenerator {
-    
-}
+// struct ActionGenerator {
+
+// }
 
 #[cfg(test)]
 mod tests {
