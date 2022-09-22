@@ -1,5 +1,7 @@
 use std::collections::HashMap;
+use std::fmt;
 
+#[derive(Debug)]
 struct DefaultSchemaObject{
   name: String,
   type: String,
@@ -14,6 +16,7 @@ impl DefaultSchemaObject {
   }
 };
 
+#[derive(Debug)]
 struct DefaultSchema {
   schema: vec![6; DefaultSchemaObject],
 };
@@ -55,10 +58,12 @@ impl DefaultSchema {
   }
 }
 
+#[derive(Debug)]
 struct SbtNftSchemaObject {
   name: String,
   type: String,
 }
+#[derive(Debug)]
 struct SbtNftSchema {
   schema: vec![9; SbtNftSchemaObject]
 } 
@@ -102,11 +107,13 @@ impl SbtNftSchema {
   SbtNftSchema
 }
 
+#[derive(Debug)]
 struct ERC721SchemaObject {
   name: String,
   type: String,
 }
 
+#[derive(Debug)]
 struct ERC721Schema {
   schema: vec![3; ERC721SchemaObject]
 }
@@ -118,24 +125,24 @@ impl ERC721Schema {
   }
 }
 
-Struct NCKeyPair  {
+struct NCKeyPair  {
   pub_key: String,
   prv_key: String,
 };
 
-Struct NCNameType {
+struct NCNameType {
   name: String,
   type: String,
 };
 
-Struct NCBuyRam {
+struct NCBuyRam {
   user: String,
   payer: String,
   payer_prv_key: String,
   ram_amt: number,
 };
 
-Struct NCCreateUser {
+struct NCCreateUser {
   new_user: String,
   newacc_pub_active_key: String,
   newacc_pub_owner_key: String,
@@ -147,7 +154,7 @@ Struct NCCreateUser {
   xfer: bool, // stake or transfer CPU/NET to the account
 };
 
-Struct NCCreateCollection  {
+struct NCCreateCollection  {
   user: String,
   user_prv_active_key: String,
   collection_name: String,
@@ -162,14 +169,14 @@ Struct NCCreateCollection  {
   max_supply: number,
 };
 
-Struct NCCreatePermission  {
+struct NCCreatePermission  {
   author: String,
   perm_name: String,
   perm_pub_key: String,
   author_prv_active_key: String
 };
 
-Struct NCLinkPerm  {
+struct NCLinkPerm  {
   author: String,               // the owner of the permission
   perm_to_link: String,
   action_owner: String,
@@ -177,7 +184,7 @@ Struct NCLinkPerm  {
   author_prv_active_key: String,
 };
 
-Struct NCCreatePool  {
+struct NCCreatePool  {
   owner: String,
   owner_prv_active_key: String,
   ticker: String,
@@ -186,27 +193,27 @@ Struct NCCreatePool  {
   is_treasury: bool,
 };
 
-Struct NCStakeMainDao  {
+struct NCStakeMainDao  {
   amt: String,
   payer: String,
   payer_prv_key: String,
 };
 
-Struct NCStakePool  {
+struct NCStakePool  {
   owner: String,
   amt: String,
   payer: String,
   payer_prv_key: String,
 };
 
-Struct NCUnstakePool  {
+struct NCUnstakePool  {
   amt: String,
   payer: String,
   payer_prv_key: String,
 };
 
 
-Struct NCTxNcoBal  {
+struct NCTxNcoBal  {
   to: String,
   amt: String,
   payer: String,
@@ -214,7 +221,7 @@ Struct NCTxNcoBal  {
   payer_prv_key: String,
 };
 
-Struct NCTxBal  {
+struct NCTxBal  {
   to: String,
   amt: String,
   payer: String,
@@ -222,11 +229,11 @@ Struct NCTxBal  {
   payer_prv_key: String,
 };
 
-Struct NCPoolInfoTotal {
+struct NCPoolInfoTotal {
   quantity: String,
   contract: String,
 }
-Struct NCPoolInfo  {
+struct NCPoolInfo  {
   id: String,
   code: String,
   owner: String,
@@ -237,21 +244,21 @@ Struct NCPoolInfo  {
 
 };
 
-Struct NCPoolsInfo  {
+struct NCPoolsInfo  {
   rows: vec![],
   more: bool,
   next_key: String,
 }
 
 
-Struct NCCreateDao  {
+struct NCCreateDao  {
   author: String,
   author_prv_key: String,
   token: String,
   descr: String,
 }
 
-Struct NCCreateDaoProposal  {
+struct NCCreateDaoProposal  {
   proposer: String,
   proposer_prv_key: String,
   dao_id: String,
@@ -263,7 +270,7 @@ Struct NCCreateDaoProposal  {
   vote_end: String
 };
 
-Struct NCCreateDaoUserWhitelistProposal  {
+struct NCCreateDaoUserWhitelistProposal  {
   proposer: String,
   proposer_prv_key: String,
   dao_id: String,
@@ -273,7 +280,7 @@ Struct NCCreateDaoUserWhitelistProposal  {
   vote_end: String,
 };
 
-Struct NCCreateDaoStakeProposal  {
+struct NCCreateDaoStakeProposal  {
   proposer: String,
   proposer_prv_key: String,
   dao_id: String,
@@ -284,7 +291,7 @@ Struct NCCreateDaoStakeProposal  {
   vote_end: String,
 };
 
-Struct NCApproveDaoProposal  {
+struct NCApproveDaoProposal  {
   approver: String,
   approver_prv_key: String,
   dao_id: number,
@@ -293,7 +300,7 @@ Struct NCApproveDaoProposal  {
   proposal_author: String,
 };
 
-Struct NCExecuteDaoProposal  {
+struct NCExecuteDaoProposal  {
   exec: String,
   exec_prv_key: String,
   dao_id: number,
@@ -303,7 +310,7 @@ Struct NCExecuteDaoProposal  {
 
 };
 
-Struct NCGetDaoProposals  {
+struct NCGetDaoProposals  {
   dao_id: String,
   dao_owner: String,
   proposal_id: String,
@@ -314,7 +321,7 @@ Struct NCGetDaoProposals  {
   reverse: bool,
 }
 
-Struct NCDaoProposalVote  {
+struct NCDaoProposalVote  {
   voter: String,
   voter_prv_key: String,
   dao_id: String,
@@ -325,20 +332,20 @@ Struct NCDaoProposalVote  {
   option: String,     // YES/NO
 }
 
-Struct NCDaoWithdrawVoteDeposit  {
+struct NCDaoWithdrawVoteDeposit  {
   voter: String,
   voter_prv_key: String,
   vote_id: String,
 }
 
-Struct NCGetVotes  {
+struct NCGetVotes  {
   voter: String,
   lower_bound: String,
   upper_bound: String,
   limit: String,
 }
 
-Struct NCGetDaoWhiteList  {
+struct NCGetDaoWhiteList  {
   dao_id: String,
   dao_owner: String,
   lower_bound: String,
@@ -347,12 +354,12 @@ Struct NCGetDaoWhiteList  {
   reverse: bool;
 }
 
-Struct NCKeyValPair  {
+struct NCKeyValPair  {
   key: String,
   value: String[],
 };
 
-Struct NCMintAsset  {
+struct NCMintAsset  {
   creator: String,
   col_name: String,
   sch_name: String,
@@ -363,27 +370,27 @@ Struct NCMintAsset  {
   payer_prv_key: String,
 };
 
-Struct NCGetAccInfo  {
+struct NCGetAccInfo  {
   owner: String,
   contract: String,
   token_name: String,
 };                 
 
-Struct NCGetPoolInfo  {
+struct NCGetPoolInfo  {
   owner: String,
   code: String,
 };
 
-Struct TxIdStakePool {
+struct TxIdStakePool {
   pool_code: String,
   pool_id: String,
 }
-Struct TxIdCreateDaoProposal {
+struct TxIdCreateDaoProposal {
   proposal_id: String,
   dao_id: String,
 }
 
-Struct NCReturnTxs  {
+struct NCReturnTxs  {
   tx_id_create_acc: String,
   tx_id_create_col: String,
   tx_id_create_cch: String,
@@ -416,7 +423,7 @@ Struct NCReturnTxs  {
   tx_id: String,
 };
 
-Struct NCReturnInfo  {
+struct NCReturnInfo  {
   acc_balances: Vec<String>,
 };
 
