@@ -1,5 +1,123 @@
 use std::collections::HashMap;
 
+struct DefaultSchemaObject{
+  name: String,
+  type: String,
+};
+
+impl DefaultSchemaObject {
+  pub fn new() -> {
+    DefaultSchemaObject {
+      name: String::from("name"),
+      type: String::from("name"),
+    }
+  }
+};
+
+struct DefaultSchema {
+  schema: vec![6; DefaultSchemaObject],
+};
+
+impl DefaultSchema {
+
+  pub fn new() -> DefaultSchema {
+    
+    DefaultSchema {
+      schema: vec![6; DefaultSchemaObject::new()]
+    }
+  }
+
+  let schema_list = [
+    "name", 
+    "description", 
+    "image", 
+    "external_url", 
+    "content_type",
+    "content",
+    "license",
+  ];
+  let mut DefaultSchemaObject = DefaultSchema {
+    schema: vec![6; DefaultSchemaObject::new()]
+  }
+
+  { 
+    for i in schema_list {
+      &mut DefaultSchemaObject.schema[i].name = schema_list[i]
+    }
+
+    DefaultSchemaObject
+  }
+
+  let DefaultSchema = DefaultSchemaObject;
+
+  DefaultSchema
+
+  }
+}
+
+struct SbtNftSchemaObject {
+  name: String,
+  type: String,
+}
+struct SbtNftSchema {
+  schema: vec![9; SbtNftSchemaObject]
+} 
+
+impl SbtNftSchema {
+
+  pub fn new() -> SbtNftSchema {
+    
+    SbtNftSchema {
+      schema: vec![9; SbtNftSchemaObject::new()]
+    }
+  }
+
+  let schema_list = [
+    "name", 
+    "description", 
+    "image", 
+    "type", 
+    "issuer",
+    "recipient",
+    "quantifiers",
+    "signature",
+    "content",
+    "version"
+  ];
+
+  let mut SbtNftSchemaObject = SbtNftSchema {
+    schema: vec![9; SbtNftSchemaObject::new()]
+  }
+
+  { 
+    for i in schema_list {
+      &mut SbtNftSchemaObject.schema[i].name = schema_list[i]
+    }
+
+    SbtNftSchemaObject
+  }
+
+  let SbtNftSchema = DefaultSchemaObject;
+
+  SbtNftSchema
+}
+
+struct ERC721SchemaObject {
+  name: String,
+  type: String,
+}
+
+struct ERC721Schema {
+  schema: vec![3; ERC721SchemaObject]
+}
+
+impl ERC721Schema {
+
+  pub fn new () -> ERC721Schema {
+
+  }
+}
+
 Struct NCKeyPair  {
   pub_key: String,
   prv_key: String,
@@ -307,108 +425,6 @@ Struct NCReturnInfo  {
 // function can be written, so objects with /* name: "name" */
 // can be instantiated
 
-struct DefaultSchemaObject{
-  name: String,
-  type: String,
-};
-
-impl DefaultSchemaObject {
-  pub fn new() -> {
-    DefaultSchemaObject {
-      name: String::from("name"),
-      type: String::from("name"),
-    }
-  }
-};
-
-struct DefaultSchema {
-  schema: vec![6; DefaultSchemaObject],
-};
-
-impl DefaultSchema {
-
-  pub fn new() -> DefaultSchema {
-    
-    DefaultSchema {
-      schema: vec![6; DefaultSchemaObject::new()]
-    }
-  }
-
-  let schema_list = [
-    "name", 
-    "description", 
-    "image", 
-    "external_url", 
-    "content_type",
-    "content",
-    "license",
-  ];
-  let mut DefaultSchemaObject = DefaultSchema {
-    schema: vec![6; DefaultSchemaObject::new()]
-  }
-
-  { 
-    for i in schema_list {
-      &mut DefaultSchemaObject.schema[i].name = schema_list[i]
-    }
-
-    DefaultSchemaObject
-  }
-
-  let DefaultSchema = DefaultSchemaObject;
-
-  DefaultSchema
-
-  }
-}
-
-struct SbtNftSchemaObject {
-  name: String,
-  type: String,
-}
-struct SbtNftSchema {
-  schema: vec![9; SbtNftSchemaObject]
-} 
-
-impl SbtNftSchema {
-
-  pub fn new() -> SbtNftSchema {
-    
-    SbtNftSchema {
-      schema: vec![9; SbtNftSchemaObject::new()]
-    }
-  }
-
-  let schema_list = [
-    "name", 
-    "description", 
-    "image", 
-    "type", 
-    "issuer",
-    "recipient",
-    "quantifiers",
-    "signature",
-    "content",
-    "version"
-  ];
-
-  let mut SbtNftSchemaObject = SbtNftSchema {
-    schema: vec![9; SbtNftSchemaObject::new()]
-  }
-
-  { 
-    for i in schema_list {
-      &mut SbtNftSchemaObject.schema[i].name = schema_list[i]
-    }
-
-    SbtNftSchemaObject
-  }
-
-  let SbtNftSchema = DefaultSchemaObject;
-
-  SbtNftSchema
-}
-
 // export const default_schema  [
 //   { name: 'name', type: "string" },
 //   { name: 'description', type: "string" },
@@ -432,21 +448,6 @@ impl SbtNftSchema {
 //   { name: 'version', type: 'string' }
 // ];
 
-struct ERC721SchemaObject {
-  name: String,
-  type: String,
-}
-
-struct ERC721Schema {
-  schema: vec![3; ERC721SchemaObject]
-}
-
-impl ERC721Schema {
-
-  pub fn new () -> ERC721Schema {
-
-  }
-}
 // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
 export const ERC721_schema  [
   { name: 'name', type: "string" },
